@@ -28,11 +28,11 @@ function initializeCode() {
     buttonAddtoList.addEventListener("click", function() {
         const listOfFirst = document.getElementById("my-list")
 
-        let Li = document.createElement("Li");
+        let textoADd = document.createElement("Li");
 
         textoADd.innerText = document.getElementById("text-area").value;
 
-        listOfFirst.appendChild(Li)
+        listOfFirst.appendChild(textoADd)
     })
 
 }
