@@ -28,6 +28,10 @@ function generateTable() {
             imgFile.style.width = "64px"
             imgFile.style.height = "64px"
             image.appendChild(imgFile)
+
+            imgFile.onload = () => {
+                URL.revokeObjectURL(imageURL)
+            }
         }
 
         const tableRows = tblBody.getElementsByTagName('tr')
