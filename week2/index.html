@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/week2.js" defer></script>
+</head>
+<body>
+
+    <table id="contactsTBL">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Admin</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+    </table>
+<form action="">
+
+    <label for="input-username">Name</label>
+    <input type="text" name="input-username" id="input-username">
+
+    <label for="input-email">Email</label>
+    <input type="text" name="input-email" id="input-email">
+
+    <input type="checkbox" name="input-admin" id="input-admin">
+
+    <label for="avatar">Choose a profile picture:</label>
+    <input type="file" name="input-image" id="input-image" accept="image/png, image/jpeg">
+</form>
+<button id="submit-data">Add to table</button>
+<button id="empty-table">Empty table</button>
+
+</body>
+</html>
