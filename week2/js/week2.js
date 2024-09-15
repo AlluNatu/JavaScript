@@ -23,14 +23,11 @@ function generateTable() {
        
         const file = inputimage.files[0]
         if (file) {
-            const reader = new FileReader()
-            reader.readAsDataURL(file)
-            reader.onload = function() {
-                imgFile.src = reader.result
-                imgFile.style.width = "64px"
-                imgFile.style.height = "64px"
-                image.appendChild(imgFile)
-            }
+            const imageURL = URL.createObjectURL(file)
+            imgFile.src = imageURL
+            imgFile.style.width = "64px"
+            imgFile.style.height = "64px"
+            image.appendChild(imgFile)
         }
 
         const tableRows = tblBody.getElementsByTagName('tr')
