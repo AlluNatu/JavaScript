@@ -8,6 +8,7 @@
 // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file
 // https://stackoverflow.com/questions/5967564/form-inside-a-table
 // https://www.w3schools.com/js/js_input_examples.asp
+// https://www.javatpoint.com/javascript-onload
 
 function generateTable() {
     const contacts = document.getElementById("contactsTBL")
@@ -41,7 +42,7 @@ function generateTable() {
             image.appendChild(imgFile)
 
             imgFile.onload = () => {
-                URL.revokeObjectURL(imageURL)
+                imageURL.revokeObjectURL(imageURL)
             }
         }
 
