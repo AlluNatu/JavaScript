@@ -1,3 +1,14 @@
+// WHERE I GOT SOME INSPIRATION FROM
+// https://stackoverflow.com/questions/60804476/how-to-empty-table-in-javascript
+// https://stackoverflow.com/questions/13457710/adding-image-inside-table-cell-in-html
+// https://www.geeksforgeeks.org/how-to-add-image-inside-table-cell-in-html/
+// https://stackoverflow.com/questions/2310145/javascript-getting-value-of-a-td-with-id-name
+// https://stackoverflow.com/questions/35581136/check-if-variable-exists-in-a-html-table-with-javascript
+// https://www.w3schools.com/html/html_images.asp
+// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file
+// https://stackoverflow.com/questions/5967564/form-inside-a-table
+// https://www.w3schools.com/js/js_input_examples.asp
+
 function generateTable() {
     const contacts = document.getElementById("contactsTBL")
     const tblBody = document.getElementById("tbody")
