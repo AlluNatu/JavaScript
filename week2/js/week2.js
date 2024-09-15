@@ -42,7 +42,7 @@ function generateTable() {
             image.appendChild(imgFile)
 
             imgFile.onload = () => {
-                imageURL.revokeObjectURL(imageURL)
+                URL.revokeObjectURL(imageURL)
             }
         }
 
