@@ -25,8 +25,8 @@ function generateTable() {
         const email = document.createElement("td")
         const isadmin = document.createElement("td")
         const name = document.createElement("td")
-        const image = document.createElement("td");
-        const imgFile = document.createElement("img");
+        const image = document.createElement("td")
+        const imgFile = document.createElement("img")
         let rowisThere = false
 
         name.textContent = nameTXT
@@ -42,7 +42,7 @@ function generateTable() {
             image.appendChild(imgFile)
 
             imgFile.onload = () => {
-                URL.revokeObjectURL(imageURL)
+                imageURL.revokeObjectURL(imageURL)
             }
         }
 
@@ -63,7 +63,7 @@ function generateTable() {
             row.appendChild(name)
             row.appendChild(email)
             row.appendChild(isadmin)
-            row.appendChild(image);
+            row.appendChild(image)
             return row
         }
     }
