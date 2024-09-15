@@ -14,7 +14,7 @@ function generateTable() {
         const isadmin = document.createElement("td")
         const name = document.createElement("td")
         const image = document.createElement("td");
-        const imgElement = document.createElement("img");
+        const imgFile = document.createElement("img");
         let rowisThere = false
 
         name.textContent = nameTXT
@@ -24,13 +24,13 @@ function generateTable() {
         const file = inputimage.files[0]
         if (file) {
             const reader = new FileReader()
-            reader.onload = function(e) {
-                imgElement.src = e.target.result
-                imgElement.style.width = "64px"
-                imgElement.style.height = "64px"
-                image.appendChild(imgElement)
-            }
             reader.readAsDataURL(file)
+            reader.onload = function() {
+                imgFile.src = reader.result
+                imgFile.style.width = "64px"
+                imgFile.style.height = "64px"
+                image.appendChild(imgFile)
+            }
         }
 
         const tableRows = tblBody.getElementsByTagName('tr')
