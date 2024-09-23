@@ -1,3 +1,7 @@
+// HELP I GOT
+//https://jsnoteclub.com/blog/how-to-iterate-table-rows-in-javascript/
+//https://stackoverflow.com/questions/32748771/color-table-row-based-on-column-value
+
 async function webReload(){
     const tblBody = document.getElementById("tbody")
     const URLlink2 = "https://statfin.stat.fi/PxWeb/sq/5e288b40-f8c8-4f1e-b3b0-61b86ce5c065" 
