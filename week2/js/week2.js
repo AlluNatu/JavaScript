@@ -83,7 +83,7 @@ function generateTable() {
         }
         let newRow = rowCreation(inputusername.value, inputemail.value, isadmintext)
         if (newRow == true){
-
+            
         }
         else {
             tblBody.appendChild(newRow)
