@@ -6,7 +6,7 @@ const tempTEXT = document.getElementById("temperatureTEXT")
 const locationTEXT = document.getElementById("location_text")
 const weekForecast = document.getElementById("containerforweek")
 const windText = document.getElementById("wind")
-const element = document.querySelector('.title');
+const element = document.querySelector('body');
 
 addDataButton.addEventListener("click", async function() {
     const selectedRadioButton = document.querySelector('input[name="temperature"]:checked');
@@ -78,7 +78,7 @@ function data_handler(data, radio){
     if (data.current.is_day == 0){
         document.body.style.backgroundColor = "#71797E";
         document.getElementById('background-photo').style.backgroundImage = `url(https://cdn.pixabay.com/photo/2016/11/25/23/15/moon-1859616_1280.jpg)`;
-
+        element.style.color = "white";
     } else {
         document.body.style.backgroundColor = "";
         document.getElementById('background-photo').style.backgroundImage = `url(https://cdn.pixabay.com/photo/2018/06/21/13/57/clouds-3488632_1280.jpg)`;
@@ -87,6 +87,7 @@ function data_handler(data, radio){
     
     if (data.current.precip_mm > 0.25) {
         document.getElementById('background-photo').style.backgroundImage = `url(https://cdn.pixabay.com/photo/2021/08/14/05/33/raindrop-6544618_1280.jpg)`;
+        element.style.color = "lightblue";
     }
 
     weekForecast.style.display = 'flex'
