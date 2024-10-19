@@ -1,0 +1,69 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+h1{
+    margin: 0;
+    padding: 0;
+    font-size: 120px;
+    font-weight: 600;
+    background-image: linear-gradient(to left, #db240c, #b393d3);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+#sectionForImage{
+    padding: 0;
+    margin: 0;
+    
+}
+
+
+#background-photo{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    background-image: url(https://cdn.pixabay.com/photo/2018/06/21/13/57/clouds-3488632_1280.jpg);
+     aspect-ratio: 20 / 3;
+     background-position: center 32.5%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bottom-div {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+    background-color: #81888fa1;
+    text-align: center;
+}
+
+.rain{
+    position: fixed;
+    top: 0;
+    font-size: 50px;
+    animation: fall 4s linear forwards;
+}
+
+@keyframes fall {
+    to{
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+
+
+@media (max-width: 800px) {
+    h1{
+        font-size: 60px;
+    }
+}
