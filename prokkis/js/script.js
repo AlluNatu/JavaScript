@@ -4,6 +4,9 @@ const weatherText = document.getElementById("weather_condition_text")
 const weatherICON = document.getElementById("weather_icon")
 const tempTEXT = document.getElementById("temperatureTEXT")
 const locationTEXT = document.getElementById("location_text")
+const weekForecast = document.getElementById("containerforweek")
+const windText = document.getElementById("wind")
+const element = document.querySelector('.title');
 
 addDataButton.addEventListener("click", async function() {
     const selectedRadioButton = document.querySelector('input[name="temperature"]:checked');
@@ -35,23 +38,47 @@ addDataButton.addEventListener("click", async function() {
 })
 
 function data_handler(data, radio){
+    console.log(data)
     locationTEXT.textContent = data.location.country + " " + data.location.localtime
     weatherText.textContent = Object.values(data)[1].condition.text
     weatherICON.src = Object.values(data)[1].condition.icon
     weatherICON.style.display = 'block'
+    windText.textContent = (`Wind: ${data.current.wind_kph}km/h`)
     location.text = data.location.country
     if (radio.value == "celsius"){
         tempTEXT.textContent = data.current.temp_c+"°c"
+
+        for (let i = 0; i < 7; i++) {
+            const forecastDay = data.forecast.forecastday[i];
+            const box = weekForecast.children[i];
+            box.innerHTML = `${forecastDay.date}: <br> <b>AVG Temp</b>: ${forecastDay.day.avgtemp_c}°C, ${forecastDay.day.condition.text}`;
+            box.style.display = 'block';
+        }
     }
     if (radio.value == "fahrenhait"){
         tempTEXT.textContent = data.current.temp_f+"°F"
+
+        for (let i = 0; i < 7; i++) {
+            const forecastDay = data.forecast.forecastday[i];
+            const box = weekForecast.children[i];
+            box.innerHTML = `${forecastDay.date}: <br> <b>AVG Temp</b>: ${forecastDay.day.avgtemp_f}°F, ${forecastDay.day.condition.text}`;
+            box.style.display = 'block';
+        }
     }
     if (radio.value == "kelvin"){
         tempTEXT.textContent = (Number(data.current.temp_c)+ 273.15).toFixed(1) + "K"
+
+        for (let i = 0; i < 7; i++) {
+            const forecastDay = data.forecast.forecastday[i];
+            const box = weekForecast.children[i];
+            box.innerHTML = `${forecastDay.date}: <br> <b>AVG Temp</b>: ${(Number(forecastDay.day.avgtemp_c)+273.15).toFixed(1)}K, ${forecastDay.day.condition.text}`;
+            box.style.display = 'block';
+        }
     }
     if (data.current.is_day == 0){
         document.body.style.backgroundColor = "#71797E";
         document.getElementById('background-photo').style.backgroundImage = `url(https://cdn.pixabay.com/photo/2016/11/25/23/15/moon-1859616_1280.jpg)`;
+
     } else {
         document.body.style.backgroundColor = "";
         document.getElementById('background-photo').style.backgroundImage = `url(https://cdn.pixabay.com/photo/2018/06/21/13/57/clouds-3488632_1280.jpg)`;
@@ -61,6 +88,8 @@ function data_handler(data, radio){
     if (data.current.precip_mm > 0.25) {
         document.getElementById('background-photo').style.backgroundImage = `url(https://cdn.pixabay.com/photo/2021/08/14/05/33/raindrop-6544618_1280.jpg)`;
     }
+
+    weekForecast.style.display = 'flex'
 
    }
 
