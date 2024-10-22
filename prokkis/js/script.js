@@ -11,7 +11,7 @@ const element = document.querySelector('body');
 addDataButton.addEventListener("click", async function() {
     const selectedRadioButton = document.querySelector('input[name="temperature"]:checked');
     const location = inputText.value
-    const URLWeatherAPI = `http://api.weatherapi.com/v1/forecast.json?key=460109e8cedb4bb199b140824241910&q=${location}&days=7`
+    const URLWeatherAPI = `http://api.weatherapi.com/v1/forecast.json?key=RETRACTED=${location}&days=7`
     try {
         const resWeatherAPI = await fetch(URLWeatherAPI);
         if (!resWeatherAPI.ok) {
