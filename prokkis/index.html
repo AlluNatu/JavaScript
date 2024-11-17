@@ -6,44 +6,61 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
     <script src="js/script.js" defer></script>
     <script src="https://unpkg.com/frappe-charts@latest"></script>
     <link rel="stylesheet" media="all" href="css/styles.css">
 </head>
 <body>
-    <section id="sectionForImage">
-        <div id="background-photo">
-            <h1>My cool weather forecast provider</h1>
-        </div>
-    </section>
+    <div id="background-photo">
+        <h1>Weather project</h1>
+    </div>
     <div>
-        <nav class="navbar bg-light">
-            <div class="container-fluid">
-              <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="input-data">
-                <button class="btn btn-outline-success" type="button" id="submit-data">Search</button>
-              </form>
-            </div>
-          </nav>
-          <fieldset id="group2">
-            <input id="celsius" type="radio" value="celsius" name="temperature" checked>
-            <label for="celsius">Celsius</label>
-            <input id="fahrenhait" type="radio" value="fahrenhait" name="temperature">
-            <label for="fahrenheit">Fahrenheit</label>
-            <input id="kelvin" type="radio" value="kelvin" name="temperature">
-            <label for="kelvin">Kelvin</label>
-          </fieldset>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="input-data">
+            <button class="btn btn-outline-success" type="button" id="submit-data">Search</button>
+            <button class="btn btn-outline-success me-2" type="button" id="my-gps">My location</button>
+            <button class="btn btn-outline-success" type="button" id="submit-favorite">Add to favorites</button>
+
+          </form>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Favorites
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark" id="dropdown-menu-heh">
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <input id="celsius" type="radio" value="celsius" name="temperature" checked>
+      <label for="celsius">Celsius</label>
+      <input id="fahrenhait" type="radio" value="fahrenhait" name="temperature">
+      <label for="fahrenheit">Fahrenheit</label>
+      <input id="kelvin" type="radio" value="kelvin" name="temperature">
+      <label for="kelvin">Kelvin</label>
           <div id="weather_conditions">
             <h2 id="location_text"></h2>
-            <div class="d-flex align-items-center mt-4"> 
+            <div class="weatherInfo"> 
                 <img id="weather_icon" src="" alt="Weather icon" style="display:none;"> <h2 id="temperatureTEXT"></h2> <h2 id="wind"></h2>
             </div>
             <h2 id="weather_condition_text"></h2>
         </div>
         <div id="chart"></div>
+        <div id="map"></div>
     </div>
-    <div style="display:none;" class="container" id="containerforweek">
+    <div style="display:none;" class="divForForecast" id="divForForecastID">
       <div class="box"></div>
       <div class="box"></div>
       <div class="box"></div>
@@ -52,8 +69,11 @@
       <div class="box"></div>
       <div class="box"></div>
   </div>
+  
     <div class="bottom-div">
         <p>Zippenfenig, P. (2023). Open-Meteo.com Weather API [Computer software]. Zenodo. https://doi.org/10.5281/ZENODO.7970649</p>
         <a href="https://www.weatherapi.com/" title="Free Weather API"><img src='//cdn.weatherapi.com/v4/images/weatherapi_logo.png' alt="Weather data by WeatherAPI.com" border="0"></a>
+    </div>
+      
 </body>
 </html>
