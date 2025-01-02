@@ -191,7 +191,7 @@ async function showPosition(position) {
     coordsinates.push(position.coords.longitude)
     getMap(coordsinates)
 
-    const URLWeatherAPI = `http://api.weatherapi.com/v1/forecast.json?key=460109e8cedb4bb199b140824241910&q=${coordsinates[0]},${coordsinates[1]}&days=7`
+    const URLWeatherAPI = `http://api.weatherapi.com/v1/forecast.json?key=RETRACTED&q=${coordsinates[0]},${coordsinates[1]}&days=7`
     try {
         const resWeatherAPI = await fetch(URLWeatherAPI)
         const dataWeatherAPI = await resWeatherAPI.json()
@@ -257,7 +257,7 @@ favoriteButton.addEventListener("click", function (){
 
 async function favoriteFunction(location) {
     const selectedRadioButton = document.querySelector('input[name="temperature"]:checked')
-    const URLWeatherAPI = `http://api.weatherapi.com/v1/forecast.json?key=460109e8cedb4bb199b140824241910&q=${location}&days=7`
+    const URLWeatherAPI = `http://api.weatherapi.com/v1/forecast.json?key=RETRACTED&q=${location}&days=7`
     try {
         const resWeatherAPI = await fetch(URLWeatherAPI)
         const dataWeatherAPI = await resWeatherAPI.json()
